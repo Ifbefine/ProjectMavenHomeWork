@@ -5,6 +5,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class BasePage {
+    protected Actions actions;
     protected WebDriver driver;
     public static JavascriptExecutor js;
 
@@ -20,6 +22,7 @@ public class BasePage {
         PageFactory.initElements(driver, this);
         js = (JavascriptExecutor) driver;
     }
+
     public void scrollWithJS(int x, int y) {
         js.executeScript("window.scrollBy(" + x + "," + y + ")");
     }
@@ -69,4 +72,5 @@ public class BasePage {
     public boolean shouldHaveText(WebElement element, String text, int time) {
         return getwait(time).until(ExpectedConditions.textToBePresentInElement(element,text));
     }
+
 }
