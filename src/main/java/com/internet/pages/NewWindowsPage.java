@@ -12,11 +12,11 @@ public class NewWindowsPage extends BasePage {
     }
 
     @FindBy(xpath = "//h3[contains(text(),'New Window')]")
-    WebElement newWindowHeader; // Переименовал в Header, так как это заголовок, а не ссылка
+    WebElement newWindowHeader;
 
     // Убрали static, добавили проверку
     public NewWindowsPage verifyHeaderText(String expectedText) {
-        // Используем твой метод ожидания текста из BasePage
+
         Assertions.assertTrue(shouldHaveText(newWindowHeader, expectedText, 5));
         return this;
     }
