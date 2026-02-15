@@ -23,6 +23,9 @@ public class BasePage {
         js = (JavascriptExecutor) driver;
     }
 
+    public BasePage() {
+    }
+
     public void scrollWithJS(int x, int y) {
         js.executeScript("window.scrollBy(" + x + "," + y + ")");
     }
